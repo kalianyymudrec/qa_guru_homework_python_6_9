@@ -1,6 +1,5 @@
 from allure_commons.types import Severity
 from selene import browser, by
-import pytest
 import allure
 
 
@@ -8,7 +7,6 @@ import allure
 @allure.tag('web')
 @allure.severity(Severity.NORMAL)
 @allure.story('With decorators')
-@pytest.fixture(scope='function', autouse=True)
 def test_decorator_steps():
     open_main_page()
     search_for_repository("eroshenkoam/allure-example")
@@ -25,9 +23,9 @@ def open_main_page():
 
 @allure.step("Открываем репозиторий {repo}")
 def search_for_repository(repo):
-    browser.element("query-builder-test").click()
-    browser.element("query-builder-test").send_keys(repo)
-    browser.element("query-builder-test").submit()
+    browser.element(".header-search-button").click()
+    browser.element("#query-builder-test").send_keys(repo)
+    browser.element("#query-builder-test").submit()
 
 
 @allure.step("Кликаем по ссылке репозиторий")

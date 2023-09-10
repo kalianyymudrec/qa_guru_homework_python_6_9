@@ -12,9 +12,9 @@ def test_github():
         browser.open("https://github.com/")
 
     with allure.step("Открываем репозиторий eroshenkoam/allure-example"):
-        browser.element("query-builder-test").click()
-        browser.element("query-builder-test").send_keys("eroshenkoam/allure-example")
-        browser.element("query-builder-test").submit()
+        browser.element(".header-search-button").click()
+        browser.element("#query-builder-test").send_keys("eroshenkoam/allure-example")
+        browser.element("#query-builder-test").submit()
 
     with allure.step("Кликаем по ссылке репозиторий"):
         browser.element(by.link_text("eroshenkoam/allure-example")).click()

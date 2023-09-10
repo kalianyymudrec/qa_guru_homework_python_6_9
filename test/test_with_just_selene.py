@@ -10,7 +10,7 @@ import allure
 def test_github():
     browser.open("https://github.com/")
 
-    browser.element("#query-builder-test").click()
+    browser.element(".header-search-button").click()
     browser.element("#query-builder-test").send_keys("eroshenkoam/allure-example")
     browser.element("#query-builder-test").submit()
 
